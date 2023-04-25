@@ -3,9 +3,13 @@ import logo from "./logo.png";
 export default class Nav extends Component {
   render() {
     return (
-      <div class="banner">
-        <img src={logo} alt="Swinburne Online logo"></img>
-        <h1>Swinburne Online FAQ Bot</h1>
+      <div className="banner">
+        <div className="logo">
+          <img src={logo} alt="Swinburne Online logo"></img>
+        </div>
+        <div className="title">
+          <h1>Swinburne Online FAQ Bot</h1>
+        </div>
       </div>
     );
   }
