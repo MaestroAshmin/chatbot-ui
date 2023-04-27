@@ -110,6 +110,9 @@ h1 {
   font-weight: medium;
   position: relative;
   text-align: left;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
 }
 
 .react-chatbot-kit-user-chat-message-arrow {
@@ -164,6 +167,9 @@ h1 {
   width: auto;
   /* margin-left: auto; */
   text-align: left;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
 }
 
 .react-chatbot-kit-chat-bot-message-arrow {
@@ -211,6 +217,17 @@ h1 {
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(15px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
