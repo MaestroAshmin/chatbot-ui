@@ -1,0 +1,78 @@
+{
+  "chatbot": [
+    {
+      "id": 1,
+      "question": "What is your question?",
+      "answer": "This is my question"
+    },
+    {
+      "id": 2,
+      "question": "What is your name?",
+      "answer": "Ashmin"
+    },
+    {
+      "id": 3,
+      "question": "What is your age?",
+      "answer": "26"
+    },
+    {
+      "question": "what do you want to ask",
+      "id": 4
+    },
+    {
+      "question": "by showing me how to get good gpa",
+      "answer": "This is a dummy response",
+      "id": 5
+    },
+    {
+      "question": "by showing me how to get good gpa",
+      "answer": "This is a dummy response",
+      "id": 6
+    },
+    {
+      "question": "by showing me how to get good gpa",
+      "answer": "This is a dummy response",
+      "id": 7
+    },
+    {
+      "question": "by showing me how to get good gpa",
+      "answer": "This is a dummy response",
+      "id": 8
+    },
+    {
+      "question": "by showing me how to get good gpa",
+      "answer": "This is a dummy response",
+      "id": 9
+    },
+    {
+      "question": "     this.setchatbotmessage(response);",
+      "answer": "This is a dummy response",
+      "id": 10
+    },
+    {
+      "question": "css property documentation in the styles pane",
+      "answer": "This is a dummy response",
+      "id": 11
+    },
+    {
+      "question": "how can you help me",
+      "answer": "This is a dummy response",
+      "id": 12
+    },
+    {
+      "question": "this is how",
+      "answer": "This is a dummy response",
+      "id": 13
+    },
+    {
+      "question": "hi",
+      "answer": "This is a dummy response",
+      "id": 14
+    },
+    {
+      "question": "meesss",
+      "answer": "This is a dummy response",
+      "id": 15
+    }
+  ]
+}
