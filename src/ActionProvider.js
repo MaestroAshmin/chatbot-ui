@@ -2,13 +2,12 @@ import React from "react";
 import axios from "axios";
 
 import StreamingMessage from "./StreamingMessage";
+import { createCustomMessage } from "react-chatbot-kit";
 
-const ActionProvider = ({ createChatBotMessage, setState, children }) => {
+const ActionProvider = ({ setState, children }) => {
   const sendMessage = (message) => {
-    const chatBotMessage = createChatBotMessage(message, {
-      type: "custom",
-    });
-    // console.log(message);
+    const chatBotMessage = createCustomMessage(message, "custom", {});
+    console.log(message);
 
     setState((prev) => ({
       ...prev,

@@ -1,19 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import swinburneLogo from "./logo.png";
-import axios from "axios";
+import { BackendUrl } from "./Contexts";
 
 const StreamingMessage = (props) => {
-    const prompt = props.state.messages[props.state.messages.length - 1].message;
-    const [generatedText, setGeneratedText] = useState("");
+    console.log(props);
+    const prompt = props.state.messages[props.state.messages.length - 1];
+    const [generatedText, setGeneratedText] = useState(prompt.noPrompt ? prompt.message : "");
+    const backendUrl = useContext(BackendUrl);
 
     useEffect(() => {
-        fetch("http://localhost:8000/message", {
+        if (prompt.noPrompt) {
+            return;
+        }
+        fetch(backendUrl, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                string: prompt,
+                string: prompt.message,
             }),
         }).then(async (response) => {
             if (!response.body) return;
