@@ -11,7 +11,7 @@ const URLForm = () => {
 
     return (
         <form onSubmit={handleSubmit} className="url-form">
-            <input type="text" value={input} onChange={setInput} />
+            <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
 
             <button type="submit">Update URL</button>
         </form>
