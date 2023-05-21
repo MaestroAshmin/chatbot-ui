@@ -19,7 +19,7 @@ class MessageParser {
     axios
       .post(`http://localhost:3000/chatbot`, { question, answer })
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         // console.log(res.data);
         this.actionProvider.sendQuestion(res.data.id);
       });
