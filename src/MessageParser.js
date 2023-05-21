@@ -1,29 +1,26 @@
 // MessageParser starter code
+import React from "react";
 import axios from "axios";
 // import React, { useState } from "react";
 const baseURL = "http://localhost:3000/chatbot";
 
 // const [question, setQuestion] = useState(null);
 
-class MessageParser {
-  constructor(actionProvider, state) {
-    this.actionProvider = actionProvider;
-    this.state = state;
-  }
+const MessageParser = ({ children, actions }) => {
+  const parse = (message) => {
+    actions.sendMessage(message);
+  };
 
-  parse(message) {
-    const questionData = message.toLowerCase();
-    const question = questionData;
-    const answer = "This is a dummy response";
-    // console.log(this.state);
-    axios
-      .post(`http://localhost:3000/chatbot`, { question, answer })
-      .then((res) => {
-        console.log(res);
-        // console.log(res.data);
-        this.actionProvider.sendQuestion(res.data.id);
-      });
-  }
-}
+  return (
+    <div>
+      {React.Children.map(children, (child) => {
+        return React.cloneElement(child, {
+          parse: parse,
+          actions: {},
+        });
+      })}
+    </div>
+  );
+};
 
 export default MessageParser;

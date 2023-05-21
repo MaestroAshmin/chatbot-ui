@@ -1,8 +1,10 @@
 // Config starter code
-import { createChatBotMessage } from "react-chatbot-kit";
+import { createChatBotMessage, createCustomMessage } from "react-chatbot-kit";
+import StreamingMessage from "./StreamingMessage";
+import React from "react";
 
 const config = {
-  initialMessages: [createChatBotMessage(`Hello! How can I help you today?`)],
+  initialMessages: [createCustomMessage(`Hello! How can I help you today?`, "custom", { noPrompt: true})],
   customStyles: {
     botMessageBox: {
       backgroundColor: "#ff4c4c",
@@ -10,6 +12,9 @@ const config = {
     chatButton: {
       backgroundColor: "#ff4c4c",
     },
+  },
+  customMessages: {
+    custom: (props) => <StreamingMessage {...props} />,
   },
 };
 
