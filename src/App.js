@@ -5,13 +5,14 @@ import ActionProvider from "./ActionProvider";
 import config from "./config";
 import Nav from "./Nav";
 import "./main.css";
+import StreamingMessage from "./StreamingMessage";
 
 function App() {
   //validator function to prevent sending empty messages
   const validator = (input) => {
     if (input.length > 0) return true;
-    return false
-}
+    return false;
+  };
   return (
     <div className="App">
       <header className="App-header">

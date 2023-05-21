@@ -1,41 +1,31 @@
-// ActionProvider starter code
+import React from "react";
 import axios from "axios";
 
-class ActionProvider {
-  constructor(
-    createChatBotMessage,
-    setStateFunc,
-    createClientMessage,
-    stateRef,
-    createCustomMessage,
-    ...rest
-  ) {
-    this.createChatBotMessage = createChatBotMessage;
-    this.setState = setStateFunc;
-    this.createClientMessage = createClientMessage;
-    this.stateRef = stateRef;
-    this.createCustomMessage = createCustomMessage;
-  }
-  sendQuestion = (id) => {
-    axios.get(`http://localhost:3000/chatbot`).then((res) => {
-      // console.log(res.data);
-      Object.values(res.data).map((value) => {
-        // console.log(value.id);
-        var response = null;
-        if (value.id == id) {
-          response = value.answer;
-          const message = this.createChatBotMessage(response);
-          this.setChatbotMessage(message);
-        }
-      });
+import StreamingMessage from "./StreamingMessage";
+
+const ActionProvider = ({ createChatBotMessage, setState, children }) => {
+  const sendMessage = (message) => {
+    const chatBotMessage = createChatBotMessage(message, {
+      type: "custom",
     });
-  };
-  setChatbotMessage = (message) => {
-    this.setState((state) => ({
-      ...state,
-      messages: [...state.messages, message],
+    // console.log(message);
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, chatBotMessage],
     }));
   };
-}
+  return (
+    <div>
+      {React.Children.map(children, (child) => {
+        return React.cloneElement(child, {
+          actions: {
+            sendMessage,
+          },
+        });
+      })}
+    </div>
+  );
+};
 
 export default ActionProvider;
